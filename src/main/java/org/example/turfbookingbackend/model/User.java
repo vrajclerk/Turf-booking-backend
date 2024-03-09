@@ -1,4 +1,4 @@
-package model;
+package org.example.turfbookingbackend.model;
 
 
 import jakarta.persistence.Column;
