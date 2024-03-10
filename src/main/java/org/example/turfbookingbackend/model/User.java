@@ -1,9 +1,7 @@
 package org.example.turfbookingbackend.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +15,7 @@ import lombok.Setter;
 public class User {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
     @Column(name="first_name")

@@ -13,6 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Booking {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     private String bookingId;
@@ -23,7 +26,7 @@ public class Booking {
 
     private String status;
 
-    @ManyToOne(cascade=CascadeType.All)
+    @ManyToOne(cascade=CascadeType.ALL)
     private User user;
 
     @ManyToOne(cascade = CascadeType.ALL)
