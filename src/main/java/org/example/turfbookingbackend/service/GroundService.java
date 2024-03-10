@@ -1,6 +1,6 @@
 package org.example.turfbookingbackend.service;
 
-import org.example.turfbookingbackend.dao.GroundDao;
+import org.example.turfbookingbackend.Repository.GroundRepository;
 import org.example.turfbookingbackend.model.Ground;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.List;
 public class GroundService {
 
     @Autowired
-    private GroundDao groundDao;
+    private GroundRepository groundDao;
     public Ground addGround(Ground ground) {
         return groundDao.save(ground);
     }

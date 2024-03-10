@@ -1,12 +1,12 @@
 package org.example.turfbookingbackend.controller;
 
+import org.example.turfbookingbackend.model.Booking;
 import org.example.turfbookingbackend.service.BookingService;
 import org.example.turfbookingbackend.service.GroundService;
 import org.example.turfbookingbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/book/ground/")
@@ -21,5 +21,16 @@ public class BookingController {
 
     @Autowired
     private GroundService groundService;
+
+    public BookingController(BookingService bookingService){
+        this.bookingService=bookingService;
+    }
+
+    @GetMapping("/")
+    public ResponseEntity bookGround(@RequestBody Booking booking) {
+
+    }
+
+
 
 }
