@@ -1,19 +1,8 @@
 package org.example.turfbookingbackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Ground {
 
     @Id
@@ -36,6 +25,9 @@ public class Ground {
 
     private int status;
 
+    @ManyToOne
+    @JoinColumn(name = "admin_id", nullable = false)
+    private Admin admin;
     public Ground(){
 
     }
@@ -113,5 +105,13 @@ public class Ground {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }

@@ -2,16 +2,9 @@ package org.example.turfbookingbackend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Booking {
 
     @Id
@@ -26,6 +19,7 @@ public class Booking {
 
     private String status;
 
+
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -34,17 +28,22 @@ public class Booking {
     @JoinColumn(name = "service_id", nullable = false)
     private Ground ground;
 
+    @ManyToOne
+    @JoinColumn(name = "admin_id", nullable = false)
+    private Admin admin;
+
     public Booking(){
 
     }
 
-    public Booking(String bookingId, String timeSlot, String date, String status, User user, Ground ground) {
+    public Booking(String bookingId, String timeSlot, String date, String status, User user, Ground ground,Admin admin) {
         this.bookingId = bookingId;
         this.timeSlot = timeSlot;
         this.date = date;
         this.status = status;
         this.user = user;
         this.ground = ground;
+        this.admin=admin;
     }
 
     public int getId() {
@@ -101,5 +100,13 @@ public class Booking {
 
     public void setGround(Ground ground) {
         this.ground = ground;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }
